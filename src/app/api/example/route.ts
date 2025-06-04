@@ -109,4 +109,18 @@ export async function POST(req: NextRequest) {
     console.error('Error en petición POST:', error);
     return NextResponse.json({ error: 'Error Interno del Servidor' }, { status: 500 });
   }
+
+
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers':
+        'Content-Type, Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version',
+    },
+  });
 }
